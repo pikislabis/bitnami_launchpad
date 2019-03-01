@@ -10,10 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_01_191000) do
+ActiveRecord::Schema.define(version: 2019_03_01_234655) do
 
   create_table "instances", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "instance_id"
+    t.string "aws_instance_id"
     t.string "instance_status"
     t.string "public_ip_address"
     t.string "encrypted_access_key_id"

@@ -21,7 +21,7 @@ class CreateAwsInstanceWorker
     aws_instance.reload
 
     @instance.update(
-      instance_id: aws_instance.id,
+      aws_instance_id: aws_instance.id,
       public_ip_address: aws_instance.public_ip_address,
       instance_status: aws_instance.state.name
     )

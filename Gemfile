@@ -9,6 +9,7 @@ gem 'puma', '~> 3.11'
 gem 'redis', '~> 4.1'
 gem 'sidekiq', '~> 5.2', '>= 5.2.5'
 gem 'aws-sdk-ec2', '~> 1.71'
+gem 'active_model_serializers', '~> 0.10.9'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 

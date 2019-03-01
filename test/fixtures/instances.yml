@@ -1,7 +1,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  instance_id: MyString
+  aws_instance_id: MyString
   instance_status: MyString
   encrypted_access_key_id: MyString
   encrypted_access_key_id_iv: MyString
@@ -9,7 +9,7 @@ one:
   encrypted_secret_access_key_iv: MyString
 
 two:
-  instance_id: MyString
+  aws_instance_id: MyString
   instance_status: MyString
   encrypted_access_key_id: MyString
   encrypted_access_key_id_iv: MyString
