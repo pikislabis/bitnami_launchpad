@@ -10,11 +10,16 @@ class Instance < ApplicationRecord
   # ==========================================================
   # Callbacks
   # ==========================================================
+  after_initialize :assign_instance_status
   after_create :create_aws_instance
 
   private
 
+  def assign_instance_status
+    self.instance_status ||= 'pending'
+  end
+
   def create_aws_instance
-    # TODO
+    CreateAwsInstanceWorker.perform_async(id) if id
   end
 end

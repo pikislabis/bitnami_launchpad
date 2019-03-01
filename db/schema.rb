@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2019_03_01_191000) do
   create_table "instances", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "instance_id"
     t.string "instance_status"
+    t.string "public_ip_address"
     t.string "encrypted_access_key_id"
     t.string "encrypted_access_key_id_iv"
     t.string "encrypted_secret_access_key"

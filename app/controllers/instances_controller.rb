@@ -10,6 +10,12 @@ class InstancesController < ApplicationController
     end
   end
 
+  # GET /instances/:id
+  def show
+    instance = Instance.find(params[:id])
+    render json: instance, status: :ok
+  end
+
   private
 
   def instance_params
