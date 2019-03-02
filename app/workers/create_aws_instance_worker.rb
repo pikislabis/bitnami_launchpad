@@ -19,10 +19,8 @@ class CreateAwsInstanceWorker
       instance_status: aws_instance.state.name
     )
 
-  rescue Aws::EC2::Errors::AuthFailure
-    @instance.update(
-      instance_status: 'auth_failure'
-    )
+  rescue StandardError => e
+    @instance.update(instance_status: e.message)
   end
 
   private
