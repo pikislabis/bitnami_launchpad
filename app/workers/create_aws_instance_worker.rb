@@ -4,14 +4,7 @@ class CreateAwsInstanceWorker
   def perform(id)
     @instance = Instance.find(id)
 
-    security_group = create_security_group
-
-    aws_instance = ec2.create_instances(
-      image_id: 'ami-0ac30b0c69f1ee39b',
-      min_count: 1,
-      max_count: 1,
-      security_group_ids: [security_group.id]
-    ).first
+    aws_instance = create_aws_instance
 
     ec2.client.wait_until(:instance_status_ok, instance_ids: [aws_instance.id]) do |w|
       w.max_attempts = 60
@@ -24,6 +17,11 @@ class CreateAwsInstanceWorker
       aws_instance_id: aws_instance.id,
       public_ip_address: aws_instance.public_ip_address,
       instance_status: aws_instance.state.name
+    )
+
+  rescue Aws::EC2::Errors::AuthFailure
+    @instance.update(
+      instance_status: 'auth_failure'
     )
   end
 
@@ -41,6 +39,17 @@ class CreateAwsInstanceWorker
       @instance.access_key_id,
       @instance.secret_access_key
     )
+  end
+
+  def create_aws_instance
+    security_group = create_security_group
+
+    ec2.create_instances(
+      image_id: 'ami-0ac30b0c69f1ee39b',
+      min_count: 1,
+      max_count: 1,
+      security_group_ids: [security_group.id]
+    ).first
   end
 
   def create_security_group
