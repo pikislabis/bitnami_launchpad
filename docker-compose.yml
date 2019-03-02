@@ -33,6 +33,7 @@ services:
     tty: true # Enables debugging capabilities when attached to this container.
     image: 'bitnami/rails:latest'
     environment:
+      - SKIP_DB_SETUP=true
       - DATABASE_HOST=mariadb
       - DATABASE_NAME=my_app_development
       - ENCRYPTION_KEY=7PJMdbdaFqa4Wz+m99kWrbOoNtcG28C=
