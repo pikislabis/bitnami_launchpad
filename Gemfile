@@ -18,6 +18,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'attr_encrypted', '~> 3.1.0'
 
+# Gems for the CLI tool.
+gem 'httparty', '~> 0.16.4'
+gem 'ruby-progressbar', '~> 1.10'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
