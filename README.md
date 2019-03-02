@@ -158,5 +158,7 @@ Public IP: 34.240.249.116
 Due to lack of time, there are things that could be done or improved:
 * Testing coverage.
 * Control duplication of Security Group.
+* Control AWS Exceptions.
 * Code modularization.
 * Extend API Endpoints.
+* Documentation for API Endpoints.
