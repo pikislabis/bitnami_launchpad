@@ -136,3 +136,27 @@ There are two endpoints:
 ```
 
 ## Command Line Testing
+
+The application has a built-in tool for testing purpose:
+
+```
+$ ruby create_ghost_instance.rb -u http://localhost:3000 -a <access_key_id> -s <secret_access_key>
+```
+
+It will create, using the API Endpoints, a Ghost instance on AWS, showing the status of the instance and its public IP:
+
+```
+$ ruby create_ghost_instance.rb -u http://localhost:3000 -a ******* -s ********
+Creating Ghost Instance:
+Progress: |==================================================================                                                    |
+Instance Status: running
+Public IP: 34.240.249.116
+```
+
+## TODOs
+
+Due to lack of time, there are things that could be done or improved:
+* Testing coverage.
+* Control duplication of Security Group.
+* Code modularization.
+* Extend API Endpoints.
