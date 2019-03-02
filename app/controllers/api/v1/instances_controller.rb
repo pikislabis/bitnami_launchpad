@@ -1,4 +1,4 @@
-class InstancesController < ApplicationController
+class Api::V1::InstancesController < ApplicationController
 
   # POST /instances
   def create

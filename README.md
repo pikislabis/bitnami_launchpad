@@ -35,7 +35,7 @@ $ docker-compose up
 Once all the cointainers are up, the API base URL is:
 
 ```
-http://localhost:3000
+http://localhost:3000/api/v1
 ```
 
 ## Endpoints
@@ -140,13 +140,13 @@ There are two endpoints:
 The application has a built-in tool for testing purpose:
 
 ```
-$ ruby create_ghost_instance.rb -u http://localhost:3000 -a <access_key_id> -s <secret_access_key>
+$ ruby create_ghost_instance.rb -u http://localhost:3000/api/v1 -a <access_key_id> -s <secret_access_key>
 ```
 
 It will create, using the API Endpoints, a Ghost instance on AWS, showing the status of the instance and its public IP:
 
 ```
-$ ruby create_ghost_instance.rb -u http://localhost:3000 -a ******* -s ********
+$ ruby create_ghost_instance.rb -u http://localhost:3000/api/v1 -a ******* -s ********
 Creating Ghost Instance:
 Progress: |==================================================================                                                    |
 Instance Status: running
@@ -156,7 +156,7 @@ Public IP: 34.240.249.116
 The tool can be launched inside `myapp` container with `docker-compose` using the `exec` command.
 
 ```
-$ docker-compose exec myapp ruby create_ghost_instance.rb -u http://localhost:3000 -a ******* -s ********
+$ docker-compose exec myapp ruby create_ghost_instance.rb -u http://localhost:3000/api/v1 -a ******* -s ********
 ```
 
 ## TODOs
