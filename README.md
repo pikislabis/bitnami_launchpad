@@ -153,6 +153,12 @@ Instance Status: running
 Public IP: 34.240.249.116
 ```
 
+The tool can be launched inside `myapp` container with `docker-compose` using the `exec` command.
+
+```
+$ docker-compose exec myapp ruby create_ghost_instance.rb -u http://localhost:3000 -a ******* -s ********
+```
+
 ## TODOs
 
 Due to lack of time, there are things that could be done or improved:
